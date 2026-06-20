@@ -72,7 +72,7 @@ Project Manager at Northwind Interactive since 2024 — promoted after 6 years r
 
 ## Variant E — DevRel (community-first)
 
-> Use for: Developer Advocate, Developer Community Manager, DevRel Community Manager at no-code/low-code/automation platforms or AI-dev-tooling companies. Fires when the role's spine is tutorials, content, events, docs, community/ecosystem growth — NOT production code. Cross-reference the DevRel code-first vs community-first discriminator in CLAUDE.md before using.
+> Use for: Developer Advocate, Developer Community Manager, DevRel Community Manager at no-code/low-code/automation platforms or AI-dev-tooling companies. Fires when the role's spine is tutorials, content, events, docs, community/ecosystem growth — NOT production code. Cross-reference the DevRel code-first vs community-first discriminator in your tailoring rules before using.
 
 Community practitioner building on the same tools I'd be advocating for: self-hosted automation workflows in production, agentic-coding-assistant power user, a 180K+ multi-platform player community (Reddit 120K, Instagram 45K, Discord 15K), and six years producing global esports events (peak 90K concurrent viewers). At Northwind Interactive I've shipped automation tooling that reclaimed ~1.5 FTE of manual work across a 6-person EU team and built the team's AI knowledge base from scratch. Looking for Developer Community / DevRel roles at no-code/automation or AI-dev-tooling companies — Amsterdam or EU remote.
 
