@@ -8,6 +8,8 @@ rest are described so the system reads as a coherent whole.
 > All names, companies, and numbers below are synthetic (persona: Alex Rivera). See
 > [`../templates/README.md`](../templates/README.md).
 
+![Crafting core: JD capture to fact pools to selection to hard gates to render to prep, with checkpoint and learnings looping back into the pools](architecture.png)
+
 ---
 
 ## Design principles

@@ -1,3 +1,5 @@
+![job-application-engine — defensible, agent-driven CV & cover-letter crafting](docs/banner.png)
+
 # job-application-engine
 
 > An end-to-end, agent-driven system for **crafting** job applications — tailoring
@@ -87,6 +89,11 @@ tailored CV (markdown + HTML), tailored cover letter (markdown + HTML), and an i
 cheatsheet. The CV ships with a pick-trace block: every line maps to the pool ID it came
 from. PDFs are produced by printing the HTML (`Cmd+P → Margins: None`) and are
 intentionally not committed.
+
+![Example tailored CV for the synthetic persona Alex Rivera, rendered from the real HTML template with placeholder data](docs/example-cv.png)
+
+> The CV above is the repo's actual HTML output, rendered with the synthetic persona's
+> data — the layout and structure are real, the facts are fictional.
 
 ## How it's built
 
