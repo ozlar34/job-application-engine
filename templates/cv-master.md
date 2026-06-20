@@ -252,10 +252,10 @@ Built the foundation that the Creator Ambassador Program later formalised: ad-ho
 
 ### Co-founder & Communications Lead · Driftline (Independent Music Label) · 2014 – 2021 · Amsterdam
 
-**B-DREPT-03** `#community` `#social` `#events`
+**B-DRIFT-03** `#community` `#social` `#events`
 Built an independent music label from zero: a **60+ episode** monthly podcast with a loyal listener base, social presence across SoundCloud / Facebook / Instagram, and a sponsor-backed event series.
 
-> **Label standard (single consolidated bullet):** the label renders as one bullet — B-DREPT-03 — by default. Include by default; drop only when the 2-page A4 fit gate forces it.
+> **Label standard (single consolidated bullet):** the label renders as one bullet — B-DRIFT-03 — by default. Include by default; drop only when the 2-page A4 fit gate forces it.
 
 ---
 

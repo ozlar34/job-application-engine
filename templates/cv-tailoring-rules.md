@@ -21,7 +21,7 @@
 | `{{BULLETS_PM_2025}}` | Picked `B-PM-*` IDs | `<li>{prose with <strong>numbers</strong>}</li>` per bullet |
 | `{{BULLETS_SCM_2023_2024}}` | Picked `B-SCM-*` IDs | Same `<li>` template |
 | `{{BULLETS_CM_2018_2022}}` | Picked `B-CM-*` IDs | Same `<li>` template |
-| `{{BULLETS_DREPT}}` | Picked `B-DREPT-*` IDs | Same `<li>` template; drop the wrapping `<article class="job">` if the label entry is cut entirely |
+| `{{BULLETS_DRIFT}}` | Picked `B-DRIFT-*` IDs | Same `<li>` template; drop the wrapping `<article class="job">` if the label entry is cut entirely |
 | `{{CERTS}}` | Picked `C-*` IDs | `<div class="cert">{cert label}</div>` per cert |
 | `{{HIGHLIGHTS}}` | Picked `H-*` IDs | `<div class="hl-row"><span class="hl-val">{Val}</span><span class="hl-lbl">{Lbl}</span></div>` per highlight |
 | `{{SKILLS}}` | Picked `S-*` IDs | `<div class="skill-item"><h4>{heading}</h4><p>{desc}</p></div>` per group |
@@ -42,7 +42,7 @@ picks:
   bullets_pm_2025: [B-PM-04, B-PM-05, B-PM-01, B-PM-02]
   bullets_scm: [B-SCM-01, B-SCM-02, B-SCM-04, B-SCM-03, B-SCM-06]
   bullets_cm: [B-CM-01, B-CM-02]
-  bullets_drept: [B-DREPT-03]
+  bullets_drift: [B-DRIFT-03]
   certs: [C-AI-LIT, C-AI-FUND, C-AI-AUTO]
   highlights: [H-01, H-02, H-04, H-05]
   skills: [S-COMOPS, S-COMMS, S-PM, S-AIOPS]
@@ -136,7 +136,7 @@ The `{{OPEN_LINE}}` ("Looking for … roles in Amsterdam or EU remote") reads as
 |---|---|---|
 | Bullets per role (PM 2024-, SCM 2022-2023) | 4-6 each | These two roles are the spine; cap by 2-page fit |
 | Bullets per role (CM 2019-2021) | 2-3 | Period-bounded, less load-bearing |
-| Bullets per role (DREPT/label) | 1 (B-DREPT-03, consolidated) by default | Single consolidated bullet is the standard; drop only when 2-page A4 fit forces it |
+| Bullets per role (DRIFT/label) | 1 (B-DRIFT-03, consolidated) by default | Single consolidated bullet is the standard; drop only when 2-page A4 fit forces it |
 | Selected Projects | 2-4 | Order by JD strand priority |
 | Highlights (sidebar) | 4 | Match JD strand |
 | Certifications | 3 default, 4-5 if JD aligns | C-AI-LIT + C-AI-FUND + C-AI-AUTO is the default trio |
@@ -173,14 +173,14 @@ Rank each candidate within its pool by three factors, in priority order:
 When picks overflow 2-page A4 (defensibility check 6 fails), trim in this sequence until it fits. **Never silently auto-drop** — `/tailor-cv` Step 8 still asks the user which to cut; this is the recommended order:
 
 1. **Skills block (`{{SKILLS}}` / all `S-*` groups) — first to cut.** Default-on, but the first sacrifice for space: the sidebar Selected Projects block covers the same competencies with more specificity, so Skills is the most redundant/compressible block. (Locked after a consumer-brand application where Skills was dropped and Selected Projects kept.)
-2. DREPT/label bullets (`B-DREPT-*`).
+2. DRIFT/label bullets (`B-DRIFT-*`).
 3. Lowest-priority CM 2019-2021 bullet.
 4. Lowest-priority SCM / PM bullet that sits off the JD primary strand.
 5. A Selected Project (last resort — these carry the most JD-specific signal).
 
 ### Line-level cut ranking — defining "lowest-priority"
 
-Steps 3-4 say "lowest-priority bullet" but don't define it: when the drop order forces a choice *among individual bullets within a block*, rank the candidates per §"Relevance ranking (pick · order · cut)" above and cut the **lowest-ranked** line first; on a tie, the off-primary-strand line goes. This *refines, never overrides*, the block drop order — Skills still goes before DREPT before CM bullets; the ranking only decides *which* bullet inside the block currently being trimmed.
+Steps 3-4 say "lowest-priority bullet" but don't define it: when the drop order forces a choice *among individual bullets within a block*, rank the candidates per §"Relevance ranking (pick · order · cut)" above and cut the **lowest-ranked** line first; on a tie, the off-primary-strand line goes. This *refines, never overrides*, the block drop order — Skills still goes before DRIFT before CM bullets; the ranking only decides *which* bullet inside the block currently being trimmed.
 
 ---
 

@@ -4,7 +4,7 @@ The **fact pools, tailoring rules, and HTML shells** the crafting skills in `ski
 
 ## Synthetic data disclaimer
 
-Every name, number, company, and product in these files is **invented** for a fictional persona, **Alex Rivera** — a generic Community / Operations / AI-adoption lead in Amsterdam. None of it is real. The point of the templates is to show the *structure* of the system (stable IDs, JD-strand tags, defensibility gates, learnings loops), not to publish a résumé. To use the engine for real, replace the persona identity block and pool entries with your own defensible facts and keep the scaffolding.
+Every name, number, company, and product in these files is **invented** for a fictional persona, **Alex Rivera** — a developer community manager based in Berlin. The persona's career spans Head of Developer Community at Mosaic Labs (open-source observability), Developer Community Manager at Vantage Systems (B2B infra-monitoring), and Community Coordinator at Stackbridge Foundation. None of it is real. The point of the templates is to show the *structure* of the system (stable IDs, JD-strand tags, defensibility gates, learnings loops), not to publish a résumé. To use the engine for real, replace the persona identity block and pool entries with your own defensible facts and keep the scaffolding.
 
 ## What's here
 

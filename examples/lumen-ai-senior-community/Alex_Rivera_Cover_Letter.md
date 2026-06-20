@@ -6,9 +6,9 @@
 
 - **Variant:** D (lede quotes the JD's named strands by program name — the JD names 3 strands cleanly).
 - **Pattern 1 (Three-things JD-map):** ON — JD names 3 distinct strands.
-- **Pattern 3 (Category-fluency):** ON — Lumen AI is in the agentic-coding category, which the persona uses daily.
-- **Pattern 2 (Honest-gap):** ON — real gap is consumer/gaming vs developer audience.
-- **Omission rule applied:** Skybound Pro League / "global esports league" / "90,000 concurrent viewers" OMITTED (AI / dev-tooling target).
+- **Pattern 3 (Category-fluency):** ON — Lumen AI is in the agentic-coding category, which the persona uses daily as a builder.
+- **Pattern 2 (Honest-gap):** ON — real gap is established OSS community vs earlier-stage build-from-scratch mandate.
+- **Omission rule applied:** no gaming/esports content in this persona; no omissions needed on that axis.
 - **Length:** structured, ~470 words. No em dashes in body prose.
 
 ---
@@ -19,23 +19,23 @@
 
 Dear Hiring Team at Lumen AI,
 
-The Lumen AI Senior Community Manager role is the first I have seen where developer community ownership, a champions program, and a community-to-product feedback loop are named as one mandate. I read it twice to make sure. That is the seat I have been building toward at Northwind Interactive since 2024.
+Most Senior Community Manager roles are built around a single pillar — the forum, or the champions program, or the feedback loop. Lumen AI's combines all three as one mandate. That matches how I have been running community at Mosaic Labs since 2022, and it is the reason I want to bring that work to a company where the product is the category I already live in.
 
-I run community and social operations at Northwind Interactive: a 180K+ multi-platform community across Reddit (120K), Instagram (45K), and Discord (15K), plus the Creator Ambassador Program. In 2024 I was promoted to Community Operations Manager after 5+ years on the program, with a mandate that now includes the AI tooling for our 6-person distributed EU team. That has meant a self-hosted community intelligence pipeline running six months without manual intervention and feeding HQ product directly, and 15+ role-specific assistants sitting behind a human-in-the-loop review gate.
+I am Head of Developer Community at Mosaic Labs, an open-source observability startup in Berlin. My remit covers the full stack: a 22K-member Discord, a 3,200-contributor GitHub ecosystem, and the Mosaic Champions Program (45 contributors, 12 countries). The discipline underneath all of it has been turning contributor activity into structured product signal — bi-weekly community health reports that feed engineering roadmaps directly, not as opinion but as traceable data with source links.
 
-Three things from the JD map cleanly onto what I already do:
+Three things from the JD map directly onto what I already run:
 
-**1. Developer community ownership.** I own a 180K+ community end to end across Reddit, Discord, Instagram, and X: programming, moderation standards, and the daily pulse. Growing it without drowning the signal is the part I optimise for, since the community is only worth being in if the noise stays low.
+**1. Developer community ownership.** I own the Mosaic community end to end: GitHub, Discord, Discourse, and async developer events. The part I optimise for is signal-to-noise — a developer community that drifts into a support queue stops functioning as a community, and the health reports exist to catch that drift early.
 
-**2. Champions / ambassador program.** I built the Creator Ambassador Program from scratch: tier-based on monthly Twitch and YouTube metrics, with real benefits per tier. It launched with 30 creators, runs at 55 today, and drives a 40% partnered-creator viewership lift in event windows. Turning ad-hoc goodwill into a measurable pipeline is exactly the brief.
+**2. Champions / ambassador program.** I built the Mosaic Champions Program from scratch: three tiers based on contribution volume and advocacy reach, with real benefits per tier (early access, conference sponsorship, paid integration work). It launched with 12 members and runs at 45 today across 12 countries. Champions now produce 60% of Mosaic's external integration documentation.
 
-**3. Community-to-product feedback loop.** My community intelligence pipeline pairs priority-tiered creator-content reports with a daily sentiment digest, in production 6+ months with full traceability from each insight back to its source post, so product can verify a finding before acting on it. Structured signal, not a firehose.
+**3. Community-to-product feedback loop.** My weekly developer digest pairs GitHub activity with forum trends and support escalations, in production 18+ months with 4,200+ subscribers. Each insight links back to its source thread so product and engineering can verify before acting. Six findings from this digest shipped as roadmap items last quarter.
 
-On the category specifically: I work inside the agentic-coding space as a daily user, not an observer. I run an agentic coding assistant as my own build platform, with a library of reusable CLI skills, and I keep a self-hosted, source-agnostic automation stack on the no-code side. So I have a working view of where codegen earns its keep versus where a no-code pipeline is the right tool, which is the line your developers live on.
+On the AI-tooling category: I use Lumen's class of product daily as a builder, not an observer. I have a working view of where codegen fits into real developer workflows versus where it adds friction — which is the perspective your community will actually want from the person running it.
 
-**The honest gap:** my community is a consumer and gaming audience, not a developer one. The bridge is that I build with the exact class of tools Lumen ships, daily and unprompted, so I speak the developer's language as a user rather than from the outside, and the community systems above port across audiences without a rebuild.
+**The honest gap:** Mosaic is an established OSS project with inbound community momentum. Lumen AI is earlier stage, which means building community pull rather than managing it. That is a harder brief — and the one I am more interested in. The systems I have built were designed to be modular precisely so they can be redeployed from a smaller base without a rebuild.
 
-Amsterdam-based, no relocation needed, and happy to travel for community events and meetups.
+Berlin-based, no relocation needed, and available to travel for developer events and meetups.
 
 Best,
 Alex Rivera
