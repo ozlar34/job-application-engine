@@ -1,0 +1,669 @@
+<!--
+  CV PLACEHOLDER TEMPLATE
+
+  This template is consumed by /tailor-cv. It is NOT meant to be opened
+  directly in a browser; placeholders will render as literal {{TOKENS}}.
+  Tailoring is a substitution from cv-master.md picks. Every {{TOKEN}}
+  below maps to a specific pool in cv-master.md.
+
+  (Showcase template — the static identity below belongs to the fictional
+  persona "Alex Rivera". Replace it with your own to use the system.)
+
+  PLACEHOLDER REFERENCE
+  =====================
+
+  {{DATE}}
+    Single-line month + year (e.g., "May 2026"). Set by /tailor-cv at
+    application time. Eyebrow above the name.
+
+  {{ROLE_SUB}}
+    Single string from RS-* pick in cv-master.md. Valid values:
+      - "Project Manager (Community Operations)"   (RS-PM)
+      - "Project Manager (AI Operations)"          (RS-PM-AIOPS — AI-builder / AI-ops track)
+      - "Senior Community Manager"                  (RS-COM)
+      - "Senior Social Media Manager"              (RS-SOC)
+      - "Senior Social Media & Community Manager"  (RS-SOCCOM)
+    (RS-PM-AI, plain "Project Manager", is deprecated — superseded by
+    RS-PM-AIOPS for AI-builder roles.) cv-master.md is the source of truth
+    for the full list.
+    Mirror rule: must pair with the matching L-* Profile (see
+    cv-tailoring-rules.md mirror table). Defensibility check 3 fails
+    on mismatch.
+
+  {{PROFILE_PARAGRAPH}}
+    The "Profile:" paragraph from the picked L-* variant. Plain prose,
+    no HTML tags. Inserted as-is into <p class="profile">.
+
+  {{OPEN_LINE}}
+    The "Open:" line from the picked L-* variant. Plain prose, no HTML
+    tags. Inserted as-is into <p class="open">.
+
+  {{BULLETS_PM_2025}}
+  {{BULLETS_SCM_2023_2024}}
+  {{BULLETS_CM_2018_2022}}
+  {{BULLETS_DREPT}}
+    Concatenated <li>...</li> blocks, one per picked B-* ID for that
+    role. Render template per bullet:
+      <li>{prose with <strong>numbers</strong>}</li>
+    The label entry is included by default; drop only when 2-page A4 fit
+    forces it (then substitute the {{BULLETS_DREPT}} block AND the
+    surrounding <article class="job"> wrapper with empty string — see
+    DROP_DREPT flag handling in /tailor-cv).
+
+  {{CERTS}}
+    Concatenated <div class="cert">...</div> blocks, one per picked
+    C-* ID. Render template per cert:
+      <div class="cert">{cert label and issuer}</div>
+
+  {{HIGHLIGHTS}}
+    Concatenated <div class="hl-row">...</div> blocks, one per picked
+    H-* ID. Render template per highlight:
+      <div class="hl-row">
+        <span class="hl-val">{Val}</span>
+        <span class="hl-lbl">{Lbl}</span>
+      </div>
+    Picks: 4 by default, ordered by JD strand priority.
+
+  {{SKILLS}}
+    Concatenated <div class="skill-item">...</div> blocks, one per
+    picked S-* ID. Render template per skill group:
+      <div class="skill-item">
+        <h4>{group heading}</h4>
+        <p>{group description}</p>
+      </div>
+    Default: all 4 (S-COMOPS, S-COMMS, S-PM, S-AIOPS), ordered by JD
+    strand priority.
+
+  {{TOOLS_HEADING}}
+    Sidebar heading label for the Tools block. Strand-conditional, keyed
+    to the picked role-sub track:
+      Track B (RS-PM, RS-PM-AIOPS) → "Tech Stack"
+      Track A (RS-COM, RS-SOC, RS-SOCCOM) → "Tools"
+    See cv-tailoring-rules.md § Tools heading rule.
+
+  {{TOOLS}}
+    Concatenated <div class="tool-item">...</div> blocks, one per
+    picked T-* ID. Render template per tool group:
+      <div class="tool-item">
+        <div class="lbl">{group heading}</div>
+        <div class="val">{comma-separated tool list}</div>
+      </div>
+    Default: all 3 (T-COM, T-PM, T-AI), ordered by JD strand priority.
+    Drop individual tools within a group as needed for JD relevance.
+
+  {{SELECTED_PROJECTS}}
+    Concatenated <div class="skill-item">...</div> blocks, one per
+    picked P-* ID. Render template per project (same wrapper as
+    {{SKILLS}}, intentional — sidebar reuses the .skill-item style):
+      <div class="skill-item">
+        <h4>{project name from cv-master heading}</h4>
+        <p>{project description prose}</p>
+      </div>
+    Picks: 2-4 by default, ordered by JD strand priority.
+
+  STATIC ELEMENTS (never substituted — locked content)
+  ====================================================
+    Name "Alex Rivera", contact block (Amsterdam / email / LinkedIn /
+    GitHub), Education row, Languages block, the four section
+    numbers (01 / 02 / 03), and all CSS. Edit only via deliberate
+    template revision, not per-application tailoring.
+
+  DEFENSIBILITY CHECKS RUN BY /tailor-cv ON THE SUBSTITUTED OUTPUT
+  ================================================================
+    See cv-tailoring-rules.md "Pre-flight defensibility checklist".
+    Every <strong> number must trace to the Locked numbers registry
+    in cv-master.md. Every bullet must trace to a B-* / P-* / H-*
+    pool entry. Role-sub must mirror Profile lead-noun.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alex Rivera — CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f4ee;
+        --paper-2: #f1ece2;
+        --ink: #1a1714;
+        --muted: #6b6258;
+        --rule: #e2dac9;
+        --accent: oklch(0.45 0.11 340);
+        --accent-deep: oklch(0.36 0.12 340);
+        --accent-tint: oklch(0.93 0.04 340);
+        --display: "Inter Tight", system-ui, sans-serif;
+        --body: "Inter Tight", system-ui, sans-serif;
+        --mono: "Inter Tight", system-ui, sans-serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #2a2723;
+        color: var(--ink);
+        font-family: var(--body);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      * { box-sizing: border-box; }
+      .stage {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .page {
+        width: 794px;
+        min-height: 1123px;
+        background: var(--paper);
+        color: var(--ink);
+        padding: 56px 56px 48px;
+        box-shadow: 0 30px 80px -20px rgba(0,0,0,0.45),
+                    0 4px 12px rgba(0,0,0,0.2);
+      }
+
+      /* Header */
+      .head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: end;
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--ink);
+        margin-bottom: 16px;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+      h1.name {
+        font-family: var(--display);
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        line-height: 1;
+        color: var(--ink);
+      }
+      .role-sub {
+        font-family: var(--body);
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 8px;
+        font-style: italic;
+      }
+      .contact {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-align: right;
+        line-height: 1.7;
+      }
+
+      /* Body */
+      .body-grid {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 36px;
+        align-items: start;
+      }
+
+      /* Section title */
+      .section { margin-bottom: 22px; }
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .section-num {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .section-title h2 {
+        font-family: var(--display);
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin: 0;
+        color: var(--ink);
+        text-transform: uppercase;
+      }
+
+      /* Profile */
+      .profile {
+        font-family: var(--body);
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--ink);
+        margin: 0 0 10px;
+        text-wrap: pretty;
+      }
+      .open {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.5;
+        color: var(--accent-deep);
+        margin: 0;
+        letter-spacing: 0.02em;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .open::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+
+      /* Job */
+      .job { margin-bottom: 18px; }
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 18px;
+        margin-bottom: 4px;
+      }
+      .job-role {
+        font-family: var(--display);
+        font-size: 14.5px;
+        font-weight: 600;
+        margin: 0;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+      }
+      .job-period {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+      }
+      .job-meta {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-bottom: 8px;
+        font-style: italic;
+      }
+      ul.bullets {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      ul.bullets li {
+        font-family: var(--body);
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--ink);
+        margin-bottom: 5px;
+        padding-left: 18px;
+        position: relative;
+        text-wrap: pretty;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      ul.bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        background: var(--accent);
+      }
+
+      /* Education */
+      .edu-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .edu-degree {
+        font-family: var(--display);
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .edu-period {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .edu-school {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .cert {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--ink);
+        padding-left: 18px;
+        position: relative;
+        margin-top: 6px;
+      }
+      .cert::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        background: var(--accent);
+      }
+      .sub-label {
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 500;
+        margin-bottom: 7px;
+      }
+      .sub-label + .sub-label,
+      .certs-label {
+        margin-top: 14px;
+      }
+
+      /* Sidebar */
+      aside { padding-top: 4px; }
+      .portrait {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border: 1px solid var(--rule);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: scale(1.25);
+        transform-origin: center 25%;
+      }
+      .side-title {
+        font-family: var(--mono);
+        font-size: 14px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 12px;
+        font-weight: 600;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      .side-block { margin-bottom: 22px; }
+      .hl-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+        border-bottom: 1px dotted var(--rule);
+      }
+      .hl-row:last-child { border-bottom: none; }
+      .hl-val {
+        font-family: var(--display);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+      .hl-lbl {
+        font-family: var(--body);
+        font-size: 9.5px;
+        color: var(--muted);
+        text-align: right;
+        line-height: 1.2;
+        max-width: 110px;
+      }
+      .skill-item { margin-bottom: 10px; break-inside: avoid; }
+      .skill-item h4 {
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0 0 2px;
+      }
+      .skill-item p {
+        font-family: var(--body);
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.45;
+        margin: 0;
+      }
+      .tool-item { margin-bottom: 10px; break-inside: avoid; }
+      .tool-item .lbl {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--accent-deep);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .tool-item .val {
+        font-family: var(--body);
+        font-size: 12px;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-family: var(--body);
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .lang-row strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .lang-row span {
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact a::after {
+        content: " ↗";
+      }
+
+      footer.foot {
+        margin-top: 28px;
+        padding-top: 12px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* Print */
+      @media print {
+        @page { size: A4; margin: 0; }
+        html, body { background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        .stage { padding: 0; }
+        .page { box-shadow: none; width: 100%; min-height: auto; padding-top: 45px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+        .section { margin-bottom: 16px; }
+        .cert { margin-top: 4px; }
+        .certs-label { margin-top: 12px; }
+        /* CSS Grid rows can't fragment across printed pages: a single body row
+           taller than one A4 page makes Chrome's print engine push the whole
+           row to page 2 (blank page 1). Floats paginate correctly, so swap the
+           two-column layout to floats for print only — visual is identical. */
+        .body-grid { display: block; }
+        .body-grid main { float: left; width: 62.4%; }
+        .body-grid aside { float: right; width: 32.3%; }
+        .body-grid::after { content: ""; display: block; clear: both; }
+        /* Let a long job split between bullets across a page break instead of
+           shoving the whole entry to the next page. Individual bullets and the
+           role header stay intact (li break-inside:avoid above; head below). */
+        .job { break-inside: auto; page-break-inside: auto; }
+        .job-head { break-after: avoid; page-break-after: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <article class="page">
+        <header class="head">
+          <div>
+            <div class="eyebrow">{{DATE}}</div>
+            <h1 class="name">Alex Rivera</h1>
+            <div class="role-sub">{{ROLE_SUB}}</div>
+          </div>
+          <div class="contact">
+            <div>Amsterdam, Netherlands</div>
+            <div>alex.rivera@example.com</div>
+            <div><a href="https://linkedin.com/in/alex-rivera-example">linkedin.com/in/alex-rivera-example</a></div>
+            <div><a href="https://github.com/alex-rivera-example">github.com/alex-rivera-example</a></div>
+          </div>
+        </header>
+
+        <div class="body-grid">
+          <main>
+            <!-- Profile -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">01</span>
+                <h2>Profile</h2>
+              </div>
+              <p class="profile">{{PROFILE_PARAGRAPH}}</p>
+              <p class="open">{{OPEN_LINE}}</p>
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">02</span>
+                <h2>Experience</h2>
+              </div>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Project Manager (Community Operations)</h3>
+                  <span class="job-period">2024 — Present</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">{{BULLETS_PM_2025}}</ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Senior Community &amp; Social Manager</h3>
+                  <span class="job-period">2022 — 2023</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">{{BULLETS_SCM_2023_2024}}</ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Community &amp; Social Manager</h3>
+                  <span class="job-period">2019 — 2021</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">{{BULLETS_CM_2018_2022}}</ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Co-founder &amp; Communications Lead</h3>
+                  <span class="job-period">2014 — 2021</span>
+                </header>
+                <div class="job-meta">Driftline (Independent Music Label) · Amsterdam, Netherlands</div>
+                <ul class="bullets">{{BULLETS_DREPT}}</ul>
+              </article>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">03</span>
+                <h2>Education &amp; Certifications</h2>
+              </div>
+              <div class="sub-label">Education</div>
+              <div class="edu-row">
+                <span class="edu-degree">BA, Business &amp; Economics</span>
+                <span class="edu-period">2013 — 2017</span>
+              </div>
+              <div class="edu-school">International university (EU)</div>
+              <div class="sub-label certs-label">Certifications</div>
+              {{CERTS}}
+            </section>
+          </main>
+
+          <aside>
+            <div class="portrait"><img src="portrait.png" alt="Alex Rivera" /></div>
+
+            <div class="side-block">
+              <h3 class="side-title">Highlights</h3>
+              {{HIGHLIGHTS}}
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Skills</h3>
+              {{SKILLS}}
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">{{TOOLS_HEADING}}</h3>
+              {{TOOLS}}
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Languages</h3>
+              <div class="lang-row"><strong>English</strong><span>Fluent</span></div>
+              <div class="lang-row"><strong>Spanish</strong><span>Native</span></div>
+              <div class="lang-row"><strong>Dutch</strong><span>B2</span></div>
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Selected Projects</h3>
+              {{SELECTED_PROJECTS}}
+            </div>
+          </aside>
+        </div>
+
+      </article>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alex Rivera — Cover Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f4ee;
+        --paper-2: #f1ece2;
+        --ink: #1a1714;
+        --muted: #6b6258;
+        --rule: #e2dac9;
+        --accent: oklch(0.45 0.11 340);
+        --accent-deep: oklch(0.36 0.12 340);
+        --accent-tint: oklch(0.93 0.04 340);
+        --display: "Inter Tight", system-ui, sans-serif;
+        --body: "Inter Tight", system-ui, sans-serif;
+        --mono: "Inter Tight", system-ui, sans-serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #2a2723;
+        color: var(--ink);
+        font-family: var(--body);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      * { box-sizing: border-box; }
+      .stage {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .page {
+        width: 794px;
+        min-height: 1123px;
+        background: var(--paper);
+        color: var(--ink);
+        padding: 56px 64px 48px;
+        box-shadow: 0 30px 80px -20px rgba(0,0,0,0.45),
+                    0 4px 12px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header — same vocabulary as the CV */
+      .head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: end;
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--ink);
+        margin-bottom: 28px;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+      h1.name {
+        font-family: var(--display);
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        line-height: 1;
+        color: var(--ink);
+      }
+      .role-sub {
+        font-family: var(--body);
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 8px;
+        font-style: italic;
+      }
+      .contact {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-align: right;
+        line-height: 1.7;
+      }
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact a::after {
+        content: ' ↗';
+      }
+
+      /* Meta strip — Date / Addressed to / Role */
+      .meta-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--rule);
+        margin-bottom: 28px;
+      }
+      .meta-block .lbl {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .meta-block .val {
+        font-family: var(--body);
+        font-size: 11.5px;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+
+      /* Salutation */
+      .salutation {
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+        margin: 0 0 10px;
+      }
+
+      /* Body paragraphs */
+      p.lede,
+      p.body {
+        font-family: var(--body);
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: var(--ink);
+        margin: 0 0 14px;
+        text-wrap: pretty;
+      }
+
+      /* Three-things callout block (Pattern 1) */
+      .callout { margin: 6px 0 14px; }
+      .callout-intro {
+        font-family: var(--body);
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: var(--ink);
+        margin: 0 0 14px;
+      }
+      .three {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid var(--rule);
+      }
+      .three-item {
+        display: grid;
+        grid-template-columns: 28px 160px 1fr;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--rule);
+        align-items: baseline;
+      }
+      .three-num {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        text-transform: uppercase;
+        padding-top: 2px;
+      }
+      .three-head {
+        font-family: var(--display);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+        line-height: 1.35;
+      }
+      .three-body {
+        font-family: var(--body);
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--ink);
+        text-wrap: pretty;
+      }
+
+      /* Honest-gap callout (Pattern 2) */
+      .gap-row {
+        margin: 6px 0 18px;
+        padding: 10px 14px;
+        border-left: 2px solid var(--accent);
+        background: var(--paper-2);
+        font-family: var(--body);
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--ink);
+      }
+      .gap-lbl {
+        display: block;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+
+      /* Sign-off */
+      .signoff {
+        margin-top: auto;
+        padding-top: 20px;
+      }
+      .signoff .close {
+        font-family: var(--body);
+        font-size: 12px;
+        color: var(--ink);
+        margin: 0 0 4px;
+      }
+      .signoff .signature {
+        font-family: var(--display);
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+
+      footer.foot {
+        margin-top: 18px;
+        padding-top: 12px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* Print — matches cv-template.html conventions */
+      @page { size: A4; margin: 0; }
+      @media print {
+        html, body {
+          background: var(--paper) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .stage { padding: 0; min-height: auto; }
+        .page {
+          box-shadow: none;
+          width: 100%;
+          min-height: auto;
+          padding: 14mm 16mm 12mm;
+        }
+        .three-item, .gap-row, .signoff { break-inside: avoid; }
+        h1, .salutation, .callout-intro { break-after: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      ============================================================
+      COVER LETTER TEMPLATE — locked design, tailor content only
+      ============================================================
+      Pipeline: HTML → browser print → PDF (Cmd+P, Margins: None)
+      Reference: cover-letter-base.md
+      Canonical example: applications/<company>/Alex_Rivera_Cover_Letter.html
+
+      Default structure for all variants (A/B/C/D):
+        1. Header (always)
+        2. Meta strip (always)
+        3. Salutation (always)
+        4. Hook/Lede paragraph (always)
+             Variant D: quotes JD's named strands by program name
+             Variants A/B/C: concrete hook (product, post, ritual)
+        5. Current-scope grounding paragraph (always — pick A/B/C/D flavor)
+        6. [DEFAULT] Three-things JD-map callout (Pattern 1)
+             Use when JD has ≥2 named strands to map; omit only if JD too generic
+        7. [WHEN APPLICABLE] Category-fluency paragraph (Pattern 3)
+        8. [WHEN APPLICABLE] Honest-gap callout (Pattern 2)
+        9. Closing logistics paragraph (always — short)
+       10. Signoff + Footer (always)
+
+      Prose fallback (Hook → Credibility → Transition → Close): only when
+      the JD is too generic to build three-things rows from.
+
+      RULES (enforce before submit):
+      - No em dashes anywhere.
+      - Every load-bearing claim has a number, tool name, program name,
+        or named property. Adjectives are deletable.
+      - GitHub link required in contact block.
+      - Length cap: prose-only 250-280 words; structured ≤60s reading
+        time (~450-500 words).
+      - SPL + "global esports league" + "90,000 concurrent viewers"
+        OMITTED for AI/SaaS/no-code/dev-tooling targets.
+    -->
+
+    <div class="stage">
+      <article class="page">
+
+        <header class="head">
+          <div>
+            <div class="eyebrow">Cover Letter — [YEAR]</div>
+            <h1 class="name">Alex Rivera</h1>
+            <div class="role-sub">Senior Community &amp; Operations Manager</div>
+          </div>
+          <div class="contact">
+            <div>Amsterdam, Netherlands</div>
+            <div>alex.rivera@example.com</div>
+            <div><a href="https://linkedin.com/in/alex-rivera-example">linkedin.com/in/alex-rivera-example</a></div>
+            <div><a href="https://github.com/alex-rivera-example">github.com/alex-rivera-example</a></div>
+          </div>
+        </header>
+
+        <section class="meta-strip">
+          <div class="meta-block">
+            <div class="lbl">Date</div>
+            <div class="val">[DD MONTH YYYY]</div>
+          </div>
+          <div class="meta-block">
+            <div class="lbl">Addressed to</div>
+            <div class="val">[Hiring Team / Hiring Manager Name], [Company]</div>
+          </div>
+          <div class="meta-block">
+            <div class="lbl">Role</div>
+            <div class="val">[Role Title]</div>
+          </div>
+        </section>
+
+        <h2 class="salutation">Dear [Hiring Team at Company / Hiring Manager Name],</h2>
+
+        <!--
+          Note on em dashes:
+          The eyebrow ("Cover Letter — [YEAR]") and the footer ("[Company] — [Role Title]")
+          use em dashes intentionally as part of the locked design vocabulary, matching
+          cv-template.html and the canonical example letter. The "no em dashes" rule applies
+          to body prose, not to header/footer chrome.
+        -->
+
+        <!-- LEDE/HOOK — Variant D: quote JD's named strands; Variants A/B/C: concrete hook (product/post/ritual) -->
+        <p class="lede">
+          The [Company role-name] role is the first I have seen where [JD strand 1], [JD strand 2], and [JD strand 3] are named as one mandate. [Optional one-line beat, e.g. "I read it twice to make sure."] That is the seat I have been building toward at Northwind Interactive since 2024.
+
+        </p>
+
+        <!-- CURRENT-SCOPE GROUNDING PARAGRAPH — Variant D -->
+        <p class="body">
+          I run community and social operations at Northwind Interactive: a 180K+ multi-platform community across Reddit (120K), Instagram (45K), and Discord (15K), plus the Creator Ambassador Program. In 2024 I was promoted to Community Operations Manager after 5+ years on the program, with a mandate covering [no-code / AI tooling / project management systems / pick what fits the JD] for our 6-person distributed EU team. That has meant [one or two specific proof-points: self-hosted automation stack, 15+ role-specific assistants behind a human-in-the-loop review gate, community intelligence pipeline running six months without manual intervention feeding HQ directly, etc.].
+        </p>
+
+        <!-- ============================================================
+             [OPTIONAL] PATTERN 1 — Three-things JD-map callout
+             Use when JD names 2-3 strands that map to distinct parts
+             of the candidate's scope. Exactly 3 rows, JD-vocabulary
+             headings, every body has a number/tool/program. Delete this
+             whole block if not using.
+             ============================================================ -->
+        <div class="callout">
+          <p class="callout-intro">Three things from the JD map cleanly onto what I already do:</p>
+          <div class="three">
+            <div class="three-item">
+              <div class="three-num">01</div>
+              <div class="three-head">[JD-vocabulary heading 1, copied verbatim from JD]</div>
+              <div class="three-body">
+                [Proof body, ≤60 words. At least one number, named tool, or named program. No adjective-only sentences.]
+              </div>
+            </div>
+            <div class="three-item">
+              <div class="three-num">02</div>
+              <div class="three-head">[JD-vocabulary heading 2, copied verbatim from JD]</div>
+              <div class="three-body">
+                [Proof body, ≤60 words. At least one number, named tool, or named program.]
+              </div>
+            </div>
+            <div class="three-item">
+              <div class="three-num">03</div>
+              <div class="three-head">[JD-vocabulary heading 3, copied verbatim from JD]</div>
+              <div class="three-body">
+                [Proof body, ≤60 words. At least one number, named tool, or named program.]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             [OPTIONAL] PATTERN 3 — Category-fluency paragraph
+             Use when target lives in a category the candidate can speak
+             to with insider vocabulary. Name 3-5 reference points (people,
+             pubs, competing products), the live tension, and products
+             personally used on each side. No "passionate" / "excited".
+             Delete if not in an insider category.
+             ============================================================ -->
+        <p class="body">
+          On [category] specifically: [one sentence positioning yourself inside the category, naming a tool you use, a publication you follow, or a person you track]. [One or two sentences naming the live tension or debate, with reference points: people (a category influencer), publications (an industry outlet), competing products on each side]. [One sentence naming where [Company] sits in that debate and why that position is defensible]. [Closing sentence listing products personally used on each side of the line, e.g. "agentic coding assistants on the codegen side; self-hosted and no-code automation on the no-code side"], so I have a working view of where each tool earns its keep.
+        </p>
+
+        <!-- ============================================================
+             [OPTIONAL] PATTERN 2 — Honest-gap callout
+             One real, visible gap + concrete remediation. Three
+             sentences max. Never use for logistics (salary, location,
+             notice period, visa). Delete if no obvious gap exists.
+             ============================================================ -->
+        <div class="gap-row">
+          <span class="gap-lbl">The honest gap</span>
+          [One sentence naming the gap. Must be a real deficit a hiring manager would notice on first read.] [One sentence with concrete remediation: action already in motion, transferable proxy, or call-side commitment.]
+        </div>
+
+        <!-- CLOSING LOGISTICS — short. Location, relocation, travel,
+             notice period, optional one-line wink that proves you
+             read the JD end-to-end. -->
+        <p class="body">
+          [Amsterdam-based, no relocation needed.] [Optional one-line wink that shows the JD was read end-to-end, e.g. naming a regional office or program detail.]
+        </p>
+
+        <div class="signoff">
+          <p class="close">Best,</p>
+          <p class="signature">Alex Rivera</p>
+        </div>
+
+        <footer class="foot">
+          <span>Alex Rivera · Cover Letter</span>
+          <span>[Company] — [Role Title]</span>
+        </footer>
+
+      </article>
+    </div>
+  </body>
+</html>
