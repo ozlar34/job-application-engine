@@ -1,0 +1,580 @@
+<!--
+  Synthetic worked example — CV tailored for Lumen AI · Senior Community Manager.
+  Produced by /tailor-cv from templates/cv-template.html + picks in
+  Alex_Rivera_CV.md (which traces every line to a templates/cv-master.md pool ID).
+  Fictional persona Alex Rivera; fictional target Lumen AI. No real data.
+  PRINT: open in a browser, Cmd+P, Save as PDF, Margins: None.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alex Rivera — CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f4ee;
+        --paper-2: #f1ece2;
+        --ink: #1a1714;
+        --muted: #6b6258;
+        --rule: #e2dac9;
+        --accent: oklch(0.45 0.11 340);
+        --accent-deep: oklch(0.36 0.12 340);
+        --accent-tint: oklch(0.93 0.04 340);
+        --display: "Inter Tight", system-ui, sans-serif;
+        --body: "Inter Tight", system-ui, sans-serif;
+        --mono: "Inter Tight", system-ui, sans-serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #2a2723;
+        color: var(--ink);
+        font-family: var(--body);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      * { box-sizing: border-box; }
+      .stage {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .page {
+        width: 794px;
+        min-height: 1123px;
+        background: var(--paper);
+        color: var(--ink);
+        padding: 56px 56px 48px;
+        box-shadow: 0 30px 80px -20px rgba(0,0,0,0.45),
+                    0 4px 12px rgba(0,0,0,0.2);
+      }
+
+      /* Header */
+      .head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: end;
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--ink);
+        margin-bottom: 16px;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+      h1.name {
+        font-family: var(--display);
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        line-height: 1;
+        color: var(--ink);
+      }
+      .role-sub {
+        font-family: var(--body);
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 8px;
+        font-style: italic;
+      }
+      .contact {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        text-align: right;
+        line-height: 1.7;
+      }
+
+      /* Body */
+      .body-grid {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 36px;
+        align-items: start;
+      }
+
+      /* Section title */
+      .section { margin-bottom: 22px; }
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .section-num {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .section-title h2 {
+        font-family: var(--display);
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin: 0;
+        color: var(--ink);
+        text-transform: uppercase;
+      }
+
+      /* Profile */
+      .profile {
+        font-family: var(--body);
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--ink);
+        margin: 0 0 10px;
+        text-wrap: pretty;
+      }
+      .open {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.5;
+        color: var(--accent-deep);
+        margin: 0;
+        letter-spacing: 0.02em;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .open::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+
+      /* Job */
+      .job { margin-bottom: 18px; }
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 18px;
+        margin-bottom: 4px;
+      }
+      .job-role {
+        font-family: var(--display);
+        font-size: 14.5px;
+        font-weight: 600;
+        margin: 0;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+      }
+      .job-period {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+      }
+      .job-meta {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-bottom: 8px;
+        font-style: italic;
+      }
+      ul.bullets {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      ul.bullets li {
+        font-family: var(--body);
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--ink);
+        margin-bottom: 5px;
+        padding-left: 18px;
+        position: relative;
+        text-wrap: pretty;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      ul.bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        background: var(--accent);
+      }
+
+      /* Education */
+      .edu-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .edu-degree {
+        font-family: var(--display);
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .edu-period {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .edu-school {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .cert {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: var(--ink);
+        padding-left: 18px;
+        position: relative;
+        margin-top: 6px;
+      }
+      .cert::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        background: var(--accent);
+      }
+      .sub-label {
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 500;
+        margin-bottom: 7px;
+      }
+      .sub-label + .sub-label,
+      .certs-label {
+        margin-top: 14px;
+      }
+
+      /* Sidebar */
+      aside { padding-top: 4px; }
+      .portrait {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border: 1px solid var(--rule);
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: scale(1.25);
+        transform-origin: center 25%;
+      }
+      .side-title {
+        font-family: var(--mono);
+        font-size: 14px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 12px;
+        font-weight: 600;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      .side-block { margin-bottom: 22px; }
+      .hl-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+        border-bottom: 1px dotted var(--rule);
+      }
+      .hl-row:last-child { border-bottom: none; }
+      .hl-val {
+        font-family: var(--display);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+      .hl-lbl {
+        font-family: var(--body);
+        font-size: 9.5px;
+        color: var(--muted);
+        text-align: right;
+        line-height: 1.2;
+        max-width: 110px;
+      }
+      .skill-item { margin-bottom: 10px; break-inside: avoid; }
+      .skill-item h4 {
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0 0 2px;
+      }
+      .skill-item p {
+        font-family: var(--body);
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.45;
+        margin: 0;
+      }
+      .tool-item { margin-bottom: 10px; break-inside: avoid; }
+      .tool-item .lbl {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--accent-deep);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .tool-item .val {
+        font-family: var(--body);
+        font-size: 12px;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-family: var(--body);
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .lang-row strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .lang-row span {
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact a::after {
+        content: " ↗";
+      }
+
+      footer.foot {
+        margin-top: 28px;
+        padding-top: 12px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono);
+        font-size: 9px;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* Print */
+      @media print {
+        @page { size: A4; margin: 0; }
+        html, body { background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        .stage { padding: 0; }
+        .page { box-shadow: none; width: 100%; min-height: auto; padding-top: 45px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+        .section { margin-bottom: 16px; }
+        .cert { margin-top: 4px; }
+        .certs-label { margin-top: 12px; }
+        .body-grid { display: block; }
+        .body-grid main { float: left; width: 62.4%; }
+        .body-grid aside { float: right; width: 32.3%; }
+        .body-grid::after { content: ""; display: block; clear: both; }
+        .job { break-inside: auto; page-break-inside: auto; }
+        .job-head { break-after: avoid; page-break-after: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <article class="page">
+        <header class="head">
+          <div>
+            <div class="eyebrow">May 2026</div>
+            <h1 class="name">Alex Rivera</h1>
+            <div class="role-sub">Senior Community Manager</div>
+          </div>
+          <div class="contact">
+            <div>Amsterdam, Netherlands</div>
+            <div>alex.rivera@example.com</div>
+            <div><a href="https://linkedin.com/in/alex-rivera-example">linkedin.com/in/alex-rivera-example</a></div>
+            <div><a href="https://github.com/alex-rivera-example">github.com/alex-rivera-example</a></div>
+          </div>
+        </header>
+
+        <div class="body-grid">
+          <main>
+            <!-- Profile (L-COM) -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">01</span>
+                <h2>Profile</h2>
+              </div>
+              <p class="profile">Senior Community Manager with 6 years scaling community across multi-platform creator programs, on-site events, and global broadcast: a 180K+ multi-platform community at Northwind Interactive (Reddit, Instagram, Discord, TikTok, Twitter/X), the Creator Ambassador Program (co-created, 30 to 55 creators), and on-site community execution for a global esports league at peak 90,000 concurrent viewers across 4 regions and 12 broadcast languages. Promoted to Community Operations Manager in 2024 after building and operating these systems end to end.</p>
+              <!-- Open line dropped: targeted application (cv-tailoring-rules.md Open-line rule) -->
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">02</span>
+                <h2>Experience</h2>
+              </div>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Community Operations Manager</h3>
+                  <span class="job-period">2024 — Present</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">
+                  <li>Own end-to-end community management for a <strong>180K+ multi-platform community</strong> (Reddit, Instagram, Discord, TikTok, Twitter/X), turning community signals into structured insights, sentiment analysis, and localisation escalations for HQ product and business teams.</li>
+                  <li>Operate the <strong>Creator Ambassador Program</strong>, the tier-based program co-created in 2021 and launched the same year. Currently <strong>55 creators</strong> under management; entry/exit decisions combine monthly Twitch and YouTube metrics with Community team judgement (relationship trust, attitude fit).</li>
+                  <li>Built and operate a community intelligence pipeline that combines priority-tiered creator-content reports with a daily sentiment digest delivered to the team chat channel. In production for <strong>6+ months</strong> with zero manual intervention. Insights feed HQ product and business teams directly to inform roadmap and GTM decisions.</li>
+                  <li>Reclaimed roughly <strong>8 hours per week</strong> across community reporting, content generation, and customer feedback synthesis through generative-AI workflows with human-in-the-loop checkpoints.</li>
+                </ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Senior Community &amp; Social Manager</h3>
+                  <span class="job-period">2022 — 2023</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">
+                  <li>Owned end-to-end community management for a <strong>180K+ multi-platform community</strong> (120K Reddit, 45K Instagram, 15K Discord), delivering <strong>25% YoY engagement growth</strong> on primary channels and <strong>20%+ follower growth in under a year</strong> on Twitter/X, TikTok, YouTube, and Twitch.</li>
+                  <li>Built and ran the <strong>Creator Ambassador Program</strong>, a tier-based program covering the full EU region with tracked output, in-game and event rewards, and a <strong>40% partnered-creator viewership lift</strong> during event windows. Launched with <strong>30 creators</strong>; <strong>55 creators</strong> under management today.</li>
+                  <li>Coordinated EU community execution for <strong>6 global IP crossover events</strong> (two major entertainment franchises) under strict licensor restrictions on messaging, visuals, and creator eligibility. Delivered all 6 with <strong>zero compliance escalations</strong> and an average <strong>25%+ engagement lift</strong> across community channels during event windows.</li>
+                  <li>Served as voice of the EU community to HQ product teams: ran meta analyses, balance and patch reports, and sentiment digests covering both new-player friction and veteran edge cases. Surfaced and resolved localisation issues in near real time, shaping product and live-ops decisions.</li>
+                </ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Community &amp; Social Manager</h3>
+                  <span class="job-period">2019 — 2021</span>
+                </header>
+                <div class="job-meta">Northwind Interactive · Amsterdam, Netherlands</div>
+                <ul class="bullets">
+                  <li>Ran community strategy across <strong>8+ titles</strong>, delivering <strong>15+ offline events in 6 countries</strong> with real-time event coverage and <strong>40+ live streams</strong> on Twitch and YouTube.</li>
+                  <li>Owned EU-side moderation and player-support escalations across Discord, Reddit, and Twitter/X for a multi-title portfolio, surfacing emerging trends to HQ for product and live-ops triage.</li>
+                </ul>
+              </article>
+
+              <article class="job">
+                <header class="job-head">
+                  <h3 class="job-role">Co-founder &amp; Communications Lead</h3>
+                  <span class="job-period">2014 — 2021</span>
+                </header>
+                <div class="job-meta">Driftline (Independent Music Label) · Amsterdam, Netherlands</div>
+                <ul class="bullets">
+                  <li>Built an independent music label from zero: a <strong>60+ episode</strong> monthly podcast with a loyal listener base, social presence across SoundCloud / Facebook / Instagram, and a sponsor-backed event series.</li>
+                </ul>
+              </article>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+              <div class="section-title">
+                <span class="section-num">03</span>
+                <h2>Education &amp; Certifications</h2>
+              </div>
+              <div class="sub-label">Education</div>
+              <div class="edu-row">
+                <span class="edu-degree">BA, Business &amp; Economics</span>
+                <span class="edu-period">2013 — 2017</span>
+              </div>
+              <div class="edu-school">International university (EU)</div>
+              <div class="sub-label certs-label">Certifications</div>
+              <div class="cert">AI Literacy in the Games Industry · industry association</div>
+              <div class="cert">AI Fundamentals · AI vendor certification · 2026</div>
+              <div class="cert">AI Automation · AI vendor certification · 2026</div>
+              <div class="cert">AI Collaboration · AI vendor certification · 2026</div>
+            </section>
+          </main>
+
+          <aside>
+            <div class="portrait"><img src="portrait.png" alt="Alex Rivera" /></div>
+
+            <div class="side-block">
+              <h3 class="side-title">Highlights</h3>
+              <div class="hl-row"><span class="hl-val">180K+</span><span class="hl-lbl">Multi-platform community</span></div>
+              <div class="hl-row"><span class="hl-val">30 → 55</span><span class="hl-lbl">Ambassador Program creators</span></div>
+              <div class="hl-row"><span class="hl-val">25%</span><span class="hl-lbl">YoY engagement growth</span></div>
+              <div class="hl-row"><span class="hl-val">15+</span><span class="hl-lbl">AI assistants shipped</span></div>
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Skills</h3>
+              <div class="skill-item"><h4>Community &amp; Social Ops</h4><p>Multi-platform ownership, ambassador and influencer programs, on-site event production, sentiment analysis, B2C and B2B creator activations.</p></div>
+              <div class="skill-item"><h4>Communication</h4><p>English public speaking and live commentary, voice-of-customer reporting to product and engineering, writing-first remote collaboration.</p></div>
+              <div class="skill-item"><h4>Project Management</h4><p>Cross-functional rollouts, SOP authoring, tool migrations, stakeholder management across HQ and regional teams.</p></div>
+              <div class="skill-item"><h4>No-Code, AI &amp; Automation</h4><p>Self-hosted automation, generative-AI workflow design with human-in-the-loop safety protocols.</p></div>
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Tools</h3>
+              <div class="tool-item"><div class="lbl">Community &amp; Social</div><div class="val">Discord, Slack, Agorapulse, Later, Eventbrite, Meta Ads Manager, Canva, Figma, Adobe Creative Suite, CapCut, OBS Studio</div></div>
+              <div class="tool-item"><div class="lbl">AI &amp; Automation</div><div class="val">Agentic coding assistants, AI chat assistants, no-code automation (self-hosted), Docker, NotebookLM, Midjourney, Vercel</div></div>
+              <div class="tool-item"><div class="lbl">Analytics &amp; PM</div><div class="val">Monday.com, Notion, Jira, Confluence, Google Workspace, Excel, Apify, GitHub, GitLab</div></div>
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Languages</h3>
+              <div class="lang-row"><strong>English</strong><span>Fluent</span></div>
+              <div class="lang-row"><strong>Spanish</strong><span>Native</span></div>
+              <div class="lang-row"><strong>Dutch</strong><span>B2</span></div>
+            </div>
+
+            <div class="side-block">
+              <h3 class="side-title">Selected Projects</h3>
+              <div class="skill-item"><h4>Creator Ambassador Program</h4><p>Tier-based ambassador and influencer program covering the full EU region, built from scratch. Three tiers based on Twitch and YouTube metrics; benefits span in-game rewards, offline event invitations, and paid activations. Launched with 30 creators, currently 55 under management. Drives a 40% partnered-creator viewership lift during event windows.</p></div>
+              <div class="skill-item"><h4>Daily Community Digest</h4><p>Self-hosted automation pulling the top 30 posts from the past 24 hours on the official subreddit, analysed with AI to deliver a daily voice-of-community digest. In production for 3+ months. Product- and source-agnostic by design: repointing it to a different brand, platform, or set of sources is a configuration change, not a rebuild.</p></div>
+              <div class="skill-item"><h4>Creator Tracker</h4><p>Python and Tkinter desktop application pulling monthly content metrics for the 55 partnered creators from official Twitch and YouTube APIs to flag inactivity, verify tier eligibility, and surface rising creators for HQ reporting.</p></div>
+            </div>
+          </aside>
+        </div>
+
+      </article>
+    </div>
+  </body>
+</html>
