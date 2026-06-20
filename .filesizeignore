@@ -1,0 +1,5 @@
+# Dense single-purpose render shells — print-CSS + layout, must stay whole.
+# Splitting would break the placeholder-substitution contract with the skills.
+templates/cv-template.html
+templates/cover-letter-template.html
+templates/interview-cheatsheet-template.html
