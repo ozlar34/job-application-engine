@@ -1,0 +1,14 @@
+# Real application artifacts — never commit
+*.pdf
+*.docx
+portrait.png
+*_PHOTO*
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor/tooling
+.claude/settings.local.json
+node_modules/
+__pycache__/
